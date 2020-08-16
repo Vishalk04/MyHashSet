@@ -1,0 +1,52 @@
+import static org.junit.Assert.*;
+
+import javax.jws.soap.InitParam;
+
+import org.junit.Test;
+
+
+public class MyHashSetTest {
+//https://leetcode.com/explore/challenge/card/august-leetcoding-challenge/549/week-1-august-1st-august-7th/3410/
+	
+	@Test
+	public void test() {
+		fail("Not yet implemented");
+	}
+
+	
+	@Test(expected = RuntimeException.class)
+	public void contains_given_null_should_throwCustomException(){
+		
+		MyHashSet hashset = new MyHashSet();
+		hashset.contains((Integer)null);
+				
+	}
+	
+	@Test
+	public void contains_given_validKey_should_returnTrue(){
+		MyHashSet hashset = new MyHashSet();
+		hashset.add(1);
+		assertTrue(hashset.contains(1));
+	}
+
+	@Test
+	public void contains_given_inValidalidKey_should_returnFalse(){
+		MyHashSet hashset = new MyHashSet();
+		hashset.add(1);
+		assertFalse(hashset.contains(2));
+	}
+	
+		@Test
+		public void add_given_validKey_should_addKeyToHashSet(){
+		MyHashSet hashset = new MyHashSet();
+		hashset.add(1);
+	}
+	
+	@Test(expected = RuntimeException.class)
+	public void add_given_inDuplicateKey_should_throwCustomException(){
+		MyHashSet hashset = new MyHashSet();
+		hashset.add(1);
+		hashset.add(1);
+	}
+
+}
