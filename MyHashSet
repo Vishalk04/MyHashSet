@@ -1,0 +1,105 @@
+class MyHashSet {
+
+	    /** Initialize your data structure here. */
+		
+		MyList[] arrElements = new MyList[10];
+		int size;
+		int capacity;
+		class MyList {
+			
+			
+			int element;
+			MyList next ;
+			public MyList(int element){
+				this.element = element;
+				this.next = null;
+			}
+			public MyList() {
+				// TODO Auto-generated constructor stub
+			}
+		}
+		
+		public MyHashSet(){
+			size = 0;
+			capacity = 3;
+		}
+ 
+	public void add(int key) {
+		
+		if(size < capacity){
+		int hash = gethashCode(key);
+		MyList list = arrElements[hash];
+		
+		MyList newNode =  new MyList(key);
+		size ++;
+		if(list == null){
+			list = newNode;
+			arrElements[hash] = list;
+		}else{
+	
+		
+		while(list.next!=null){
+			if(list.element == key){
+				throw new RuntimeException();
+			}
+			list = list.next;	
+		}
+		
+		if(list.element == key){
+			throw new RuntimeException();
+		}
+		list.next = newNode;
+		}
+		}
+	}
+	    
+	public int getSize(){
+		return size;
+	}
+	    private int gethashCode(int key) {
+			
+			return key%10;
+		}
+
+		public void remove(int key) {
+	        
+			int hash = gethashCode(key);
+	    	
+	    	MyList list = arrElements[hash];
+	    	
+	    	while(list!=null){
+	    		
+	    		if(list.element == key){
+	    			
+	    		}
+	    	}
+	    	
+	    	
+	    }
+	    
+	    /** Returns true if this set contains the specified element */
+	    public boolean contains(int key) {
+	        
+	    	if((Integer)key == null){
+	    		throw new RuntimeException();
+	    	}
+	    	int hash = gethashCode(key);
+	    	
+	    	MyList list = arrElements[hash];
+	    	
+	    	while(list!=null){
+	    		
+	    		if(list.element == key){
+	    			return true;
+	    		}
+	    	}
+	    	return false;
+	    	
+	    }
+	
+
+	
+	
+	 
+
+}
